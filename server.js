@@ -79,26 +79,28 @@ const getAluno = (argumentos) => {
 }
 
 const inserirAluno = (argumentos) => {
+    const {nome, curso, semestre, ra, cpf, cidade} = argumentos.campos
     let aluno = {
-        nome: argumentos.campos.nome,
-        curso: argumentos.campos.curso,
-        semestre: argumentos.campos.semestre,
-        ra: argumentos.campos.ra,
-        cpf: argumentos.campos.cpf,
-        cidade: argumentos.campos.cidade
+        nome: nome,
+        curso: curso,
+        semestre: semestre,
+        ra: ra,
+        cpf: cpf,
+        cidade: cidade
     }
     alunos.push(aluno)
-    return getAluno({ra: argumentos.campos.ra})
+    return getAluno({ra: ra})
 }
 
 const alterarAluno = (argumentos) => {
+    const {nome, curso, semestre, ra, cpf, cidade} = argumentos.campos
     let aluno = alunos.find(a => a.ra === argumentos.ra)
-    aluno.nome = argumentos.campos.nome ? argumentos.campos.nome : aluno.nome,
-    aluno.curso = argumentos.campos.curso ? argumentos.campos.curso : aluno.curso,
-    aluno.semestre = argumentos.campos.semestre ? argumentos.campos.semestre : aluno.semestre,
-    aluno.ra = argumentos.campos.ra ? argumentos.campos.ra : aluno.ra,
-    aluno.cpf = argumentos.campos.cpf ? argumentos.campos.cpf : aluno.cpf,
-    aluno.cidade = argumentos.campos.cidade ? argumentos.campos.cidade : aluno.cidade
+    aluno.nome = nome ? nome : aluno.nome,
+    aluno.curso = curso ? curso : aluno.curso,
+    aluno.semestre = semestre ? semestre : aluno.semestre,
+    aluno.ra = ra ? ra : aluno.ra,
+    aluno.cpf = cpf ? cpf : aluno.cpf,
+    aluno.cidade = cidade ? cidade : aluno.cidade
     return getAluno({ra: argumentos.ra})
 }
 
